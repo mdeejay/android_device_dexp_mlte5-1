@@ -1,4 +1,4 @@
-CyanogenMod 13.0 device configuration for DNS S4508.
+CyanogenMod 13.0 device configuration for Dexp Ixion M 5 LTE.
 
 
 How to build:
