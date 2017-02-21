@@ -33,3 +33,7 @@ ro.sys.fw.dex2oat_thread_count=3
 
 # Disable CPP duplication mode
 persist.camera.cpp.duplication=false
+
+#Camera
+media.stagefright.legacyencoder=true
+media.stagefright.less-secure=true

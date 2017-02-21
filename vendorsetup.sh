@@ -14,4 +14,4 @@
 # limitations under the License.
 #
 
-add_lunch_combo cm_MLTE5-userdebug
+add_lunch_combo lineage_MLTE5-userdebug
