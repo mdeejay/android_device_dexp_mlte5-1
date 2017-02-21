@@ -58,8 +58,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/mixer_paths_qrd_skui.xml:system/etc/mixer_paths_qrd_skui.xml
 
 # Browser
-#PRODUCT_PACKAGES += \
-    #Gello
+PRODUCT_PACKAGES += \
+    Gello
 
 # Camera
 PRODUCT_PACKAGES += \
