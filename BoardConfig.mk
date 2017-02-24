@@ -15,7 +15,7 @@
 
 FORCE_32_BIT := true
 
-include device/cyanogenmod/msm8916-common/BoardConfigCommon.mk
+include device/cyanogen/msm8916-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/DEXP/MLTE5
 
