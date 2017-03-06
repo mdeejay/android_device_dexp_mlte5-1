@@ -1,4 +1,4 @@
-CyanogenMod 13.0 device configuration for Dexp Ixion M 5 LTE.
+LineageOS 13.0 device configuration for DEXP Ixion M 5 LTE.
 
 
 How to build:
@@ -6,8 +6,8 @@ How to build:
 
 Initialize repo:
 
-    repo init -u git://github.com/CyanogenMod/android.git -b cm-13.0
-    curl --create-dirs -L -o .repo/local_manifests/manifest_dexp_mlte5.xml -O -L https://raw.githubusercontent.com/DX37/android_manifest_dexp_mlte5/cm-13.0/manifest_dexp_mlte5.xml
+    repo init -u git://github.com/LineageOS/android.git -b cm-13.0
+    git clone https://github.com/DX37/android_manifest_dexp_mlte5 -b cm-13.0 .repo/local_manifests
     repo sync
 
 Compile:
