@@ -17,7 +17,7 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-#define BTM_DEF_LOCAL_NAME   "Dexp Ixion M 5 LTE"
+#define BTM_DEF_LOCAL_NAME   "Dexp Ixion M LTE 5"
 #define BLUETOOTH_QTI_SW TRUE
 #define BLE_VND_INCLUDED   TRUE
 #endif
