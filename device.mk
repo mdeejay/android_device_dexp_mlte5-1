@@ -63,10 +63,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     PixelLauncher
 
-# DozeMode
-PRODUCT_PACKAGES += \
-    YUDoze
-
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8916 \
