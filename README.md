@@ -7,10 +7,10 @@ How to build:
 Initialize repo:
 
     repo init -u git://github.com/LineageOS/android.git -b cm-14.1
-    git clone https://github.com/DX37/android_manifest_dexp_mlte5 -b cm-14.1 .repo/local_manifests
+    git clone https://github.com/mdeejay/android_manifest_dexp_mlte5 -b cm-14.1 .repo/local_manifests
     repo sync
 
 Compile:
 
-    . build/envsetup.sh
+    source build/envsetup.sh
     brunch MLTE5
