@@ -84,6 +84,9 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 
+# Enable real time lockscreen charging current values
+BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
+
 # SELinux
 BOARD_SEPOLICY_DIRS += \
     device/DEXP/MLTE5/sepolicy
