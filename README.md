@@ -1,4 +1,4 @@
-LineageOS 14.1 device configuration for DEXP Ixion M 5 LTE.
+Lineage OS 14.1 device configuration for DEXP Ixion M LTE 5
 
 
 How to build:
@@ -7,8 +7,8 @@ How to build:
 Initialize repo:
 
     repo init -u git://github.com/LineageOS/android.git -b cm-14.1
-    git clone https://github.com/mdeejay/android_manifest_dexp_mlte5 -b cm-14.1 .repo/local_manifests
-    repo sync
+    git clone https://github.com/mdeejay/android_manifest_dexp_mlte5-1 -b cm-14.1 .repo/local_manifests
+    repo sync -j16 -c
 
 Compile:
 
