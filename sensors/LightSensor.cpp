@@ -61,7 +61,7 @@ static const char *input_sysfs_path_list[SUPPORTED_LSENSOR_COUNT] = {
 };
 
 static const char *input_sysfs_enable_list[SUPPORTED_LSENSOR_COUNT] = {
-	[LTR559_LS] = "enable_als_sensor",
+	[LTR559_LS] = "enable",
 	[LIGHTSENSOR_LEVEL] = "enable",
 	[GENERIC_LS] = "enable",
 	[STK3x1x_LS] = "enable",
