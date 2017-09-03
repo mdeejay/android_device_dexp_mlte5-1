@@ -20,8 +20,6 @@
 
     <string name="config_datause_iface">rmnet0</string>
 
-    <bool name="config_useDevInputEventForAudioJack">true</bool>
-
     <!-- Minimum allowable screen brightness to use in a very dark room. This value sets the floor for the darkest possible auto-brightness adjustment. It is expected to be somewhat less than the first entry in config_autoBrightnessLcdBacklightValues so as to allow the user to have some range of adjustment to dim the screen further than usual in very dark rooms. The contents of the screen must still be clearly visible in darkness (although they may not be visible in a bright room). --> 
     <integer name="config_screenBrightnessDark">4</integer>
 
@@ -82,6 +80,7 @@
     </integer-array>
 
     <integer name="config_buttonBrightnessSettingDefault">30</integer>
+
     <bool name="config_deviceHasVariableButtonBrightness">true</bool>
 
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option --> 
@@ -174,5 +173,21 @@
 
     <!-- enable doze powersaving mode -->
     <bool name="config_enableAutoPowerModes">true</bool>
+
+    <!-- Flag specifying whether VoLTE is available on device -->
+    <bool name="config_device_volte_available">true</bool>
+
+    <!-- Flag specifying whether VoLTE should be available for carrier: independent of
+         carrier provisioning. If false: hard disabled. If true: then depends on carrier
+         provisioning, availability etc -->
+    <bool name="config_carrier_volte_available">true</bool>
+
+    <!-- Flag specifying whether VT is available on device -->
+    <bool name="config_device_vt_available">true</bool>
+
+    <!-- Flag specifying whether VT should be available for carrier: independent of
+         carrier provisioning. If false: hard disabled. If true: then depends on carrier
+         provisioning, availability etc -->
+    <bool name="config_carrier_vt_available">true</bool>
 
 </resources>

@@ -17,6 +17,10 @@ ro.frp.pst=/dev/block/bootdevice/by-name/frp
 # HWUI
 ro.hwui.text_large_cache_height=2048
 
+
+# relax sensor fusion mag field filter
+ro.fusion.magfield.max=250
+
 # Radio
 persist.radio.multisim.config=dsds
 rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so

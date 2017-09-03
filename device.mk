@@ -83,9 +83,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    libjni_livedisplay \
-    pp_calib_data_nt35521_dijing_4p7inch_hd_video_panel.xml \
-    svi_config.xml
+    libjni_livedisplay
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -120,7 +118,8 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
 
 # Ramdisk
 PRODUCT_PACKAGES += \
