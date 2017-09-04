@@ -35,29 +35,29 @@
 /*****************************************************************************/
 
 enum input_device_name {
-    LTR559_PS = 0,
+    GENERIC_PSENSOR = 0,
     LEGACY_PSENSOR,
-    GENERIC_PSENSOR,
+    CM36283_PS,
     SUPPORTED_PSENSOR_COUNT,
 };
 
 static const char *data_device_name[SUPPORTED_PSENSOR_COUNT] = {
-   [LTR559_PS] = "proximity",
+   [GENERIC_PSENSOR] = "proximity",
     [LEGACY_PSENSOR] = "proximity",
-        [GENERIC_PSENSOR] = "proximity",
+        [CM36283_PS] = "cm36283-ps",
 };
 
 static const char *input_sysfs_path_list[SUPPORTED_PSENSOR_COUNT] = {
    /* This is not used by generic HAL. Just for back compatibility */
-   [LTR559_PS] = "/sys/class/input/%s/device/",
+   [GENERIC_PSENSOR] = "/sys/class/input/%s/device/",
     [LEGACY_PSENSOR] = "/sys/class/input/%s/device/",
-        [GENERIC_PSENSOR] = "/sys/class/input/%s/device/",
+        [CM36283_PS] = "/sys/class/input/%s/device/",
 };
 
 static const char *input_sysfs_enable_list[SUPPORTED_PSENSOR_COUNT] = {
-   [LTR559_PS] = "enable",
+   [GENERIC_PSENSOR] = "enable",
     [LEGACY_PSENSOR] = "enable",
-        [GENERIC_PSENSOR] = "enable",
+        [CM36283_PS] = "enable",
 };
 
 
@@ -274,38 +274,6 @@ int ProximitySensor::readEvents(sensors_event_t* data, int count)
     }
 
     return numEventReceived;
-}
-
-int ProximitySensor::setDelay(int32_t, int64_t ns)
-{
-    int fd;
-    char propBuf[PROPERTY_VALUE_MAX];
-    char buf[80];
-    int len;
-
-    property_get("sensors.light.loopback", propBuf, "0");
-    if (strcmp(propBuf, "1") == 0) {
-        ALOGE("sensors.light.loopback is set");
-        return 0;
-    }
-    int delay_ms = ns / 1000000;
-    strlcpy(&input_sysfs_path[input_sysfs_path_len],
-                SYSFS_POLL_DELAY, SYSFS_MAXLEN);
-    fd = open(input_sysfs_path, O_RDWR);
-    if (fd < 0) {
-        ALOGE("open %s failed.(%s)\n", input_sysfs_path, strerror(errno));
-        return -1;
-    }
-    snprintf(buf, sizeof(buf), "%d", delay_ms);
-    len = write(fd, buf, ssize_t(strlen(buf)+1));
-    if (len < ssize_t(strlen(buf) + 1)) {
-        ALOGE("write %s failed\n", buf);
-        close(fd);
-        return -1;
-    }
-
-    close(fd);
-    return 0;
 }
 
 float ProximitySensor::indexToValue(size_t index) const
