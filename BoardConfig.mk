@@ -21,7 +21,5 @@ include device/cyanogen/msm8916-common/BoardConfigCommon.mk
 DEVICE_PATH := device/DEXP/MLTE5
 include $(DEVICE_PATH)/board/*.mk
 
-TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
-
 # inherit from the proprietary version
 -include vendor/DEXP/MLTE5/BoardConfigVendor.mk
