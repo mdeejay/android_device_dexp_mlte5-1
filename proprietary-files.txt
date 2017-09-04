@@ -159,6 +159,9 @@ vendor/lib/libmm-als.so
 vendor/lib/libmm-disp-apis.so
 vendor/lib/libmm-qdcm.so
 
+# Power
+bin/vm_bms
+
 # Qualcomm framework
 bin/irsc_util
 vendor/lib/libdiag.so
