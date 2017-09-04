@@ -13,4 +13,4 @@ BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
 BLOCK_BASED_OTA := false
 
 # Filesystem
-TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(LOCAL_PATH)/android_filesystem_config.h
+TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(DEVICE_PATH)/android_filesystem_config.h

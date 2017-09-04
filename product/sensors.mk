@@ -1,8 +1,7 @@
 # Sensor HAL
 PRODUCT_PACKAGES += \
     sensors.msm8916 \
-    libcalmodule_common \
-    calmodule.cfg
+    libcalmodule_common
 
 # Permissions
 PRODUCT_COPY_FILES += \
