@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-$(call inherit-product-if-exists, vendor/DEXP/MLTE5/MLTE5-vendor.mk)
+$(call inherit-product, vendor/DEXP/MLTE5/MLTE5-vendor.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
