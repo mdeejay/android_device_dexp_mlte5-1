@@ -18,12 +18,24 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
+# Inherit some common LineageOS stuff.
+$(call inherit-product, vendor/aosp/common.mk)
+
 # Inherit from MLTE5 device
 $(call inherit-product, device/DEXP/MLTE5/device.mk)
 
+TARGET_BOOT_ANIMATION_RES := 720
+
+# Must define platform variant before including any common things
+TARGET_BOARD_PLATFORM_VARIANT := msm8916
+
+PRODUCT_NAME := aosp_MLTE5
+PRODUCT_DEVICE := MLTE5
+
+PRODUCT_GMS_CLIENTID_BASE := android-dexp
+
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := MLTE5
-PRODUCT_NAME := full_MLTE5
 PRODUCT_BRAND := DEXP
 PRODUCT_MODEL := MLTE5
 PRODUCT_MANUFACTURER := DEXP
