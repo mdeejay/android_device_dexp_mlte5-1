@@ -1,5 +1,3 @@
-ifeq ($(TARGET_DEVICE),MLTE5)
-
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -62,4 +60,3 @@ LOCAL_SRC_FILES := calmodule.cfg
 
 include $(BUILD_PREBUILT)
 
-endif
