@@ -16,7 +16,7 @@
 
 
 // #define LOG_NDEBUG 0
-#define LOG_TAG "lights.msm8610"
+#define LOG_TAG "lights.msm8916"
 
 #include <cutils/log.h>
 
