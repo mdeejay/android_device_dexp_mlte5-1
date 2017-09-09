@@ -7,8 +7,4 @@
     "repository": "android_kernel_cyanogen_msm8916",
     "target_path": "kernel/cyanogen/msm8916"
   }
-  {
-    "repository": "android_external_stlport",
-    "target_path": "external/stlport"
-  }
 ]
