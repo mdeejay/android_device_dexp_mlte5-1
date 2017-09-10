@@ -651,7 +651,7 @@ QCameraParameters::QCameraParameters()
       m_bAVTimerEnabled(false),
       m_bMobiEnabled(false),
       m_AdjustFPS(NULL),
-      m_bHDR1xFrameEnabled(true),
+      m_bHDR1xFrameEnabled(false),
       m_HDRSceneEnabled(false),
       m_bHDRThumbnailProcessNeeded(false),
       m_bHDR1xExtraBufferNeeded(true),
@@ -733,7 +733,7 @@ QCameraParameters::QCameraParameters(const String8 &params)
     m_bHDREnabled(false),
     m_bAVTimerEnabled(false),
     m_AdjustFPS(NULL),
-    m_bHDR1xFrameEnabled(true),
+    m_bHDR1xFrameEnabled(false),
     m_HDRSceneEnabled(false),
     m_bHDRThumbnailProcessNeeded(false),
     m_bHDR1xExtraBufferNeeded(true),
@@ -4369,7 +4369,7 @@ int32_t QCameraParameters::initDefaultParameters()
     set(KEY_QC_SUPPORTED_SCENE_DETECT, onOffValues);
     setSceneDetect(VALUE_OFF);
     m_bHDREnabled = false;
-    m_bHDR1xFrameEnabled = true;
+    m_bHDR1xFrameEnabled = false;
 
     m_bHDRThumbnailProcessNeeded = false;
     m_bHDR1xExtraBufferNeeded = true;
@@ -4393,10 +4393,6 @@ int32_t QCameraParameters::initDefaultParameters()
     //Set Face Detection
     set(KEY_QC_SUPPORTED_FACE_DETECTION, onOffValues);
     set(KEY_QC_FACE_DETECTION, VALUE_OFF);
-
-    //Set Face Recognition
-    //set(KEY_QC_SUPPORTED_FACE_RECOGNITION, onOffValues);
-    //set(KEY_QC_FACE_RECOGNITION, VALUE_OFF);
 
     //Set ZSL
     set(KEY_QC_SUPPORTED_ZSL_MODES, onOffValues);
@@ -4448,20 +4444,9 @@ int32_t QCameraParameters::initDefaultParameters()
     // Set default longshot mode
     set(KEY_QC_LONG_SHOT, "off");
 
-    //Get RAM size and disable features which are memory rich
-    struct sysinfo info;
-    sysinfo(&info);
+    set(KEY_QC_LONGSHOT_SUPPORTED, VALUE_TRUE);
 
-    CDBG_HIGH("%s: totalram = %ld, freeram = %ld ", __func__, info.totalram,
-        info.freeram);
-    if (info.totalram > TOTAL_RAM_SIZE_512MB) {
-        set(KEY_QC_LONGSHOT_SUPPORTED, VALUE_TRUE);
-        //Disable HDR in ZSL support for Lettuce. Buggy and little benefit.
-        set(KEY_QC_ZSL_HDR_SUPPORTED, VALUE_TRUE);
-    } else {
-        set(KEY_QC_LONGSHOT_SUPPORTED, VALUE_FALSE);
-        set(KEY_QC_ZSL_HDR_SUPPORTED, VALUE_TRUE);
-    }
+    set(KEY_QC_ZSL_HDR_SUPPORTED, VALUE_FALSE);
 
     int32_t rc = commitParameters();
     if (rc == NO_ERROR) {

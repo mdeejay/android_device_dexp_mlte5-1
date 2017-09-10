@@ -20,6 +20,7 @@
 
 #include <cutils/log.h>
 
+#include <cutils/properties.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
