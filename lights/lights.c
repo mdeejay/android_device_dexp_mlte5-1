@@ -16,11 +16,13 @@
 
 
 // #define LOG_NDEBUG 0
-#define LOG_TAG "lights.msm8916"
+#define LOG_TAG "lights"
 
 #include <cutils/log.h>
 
+#include <stdbool.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <errno.h>
@@ -62,7 +64,7 @@ void init_globals(void)
 }
 
 static int
-write_int(char const* path, int value)
+write_int(char const *path, int value)
 {
     int fd;
     static int already_warned = 0;
@@ -84,22 +86,23 @@ write_int(char const* path, int value)
 }
 
 static int
-is_lit(struct light_state_t const* state)
+is_lit(struct light_state_t const *state)
 {
     return state->color & 0x00ffffff;
 }
 
 static int
-rgb_to_brightness(struct light_state_t const* state)
+rgb_to_brightness(const struct light_state_t *state)
 {
     int color = state->color & 0x00ffffff;
-    return ((77*((color>>16)&0x00ff))
-            + (150*((color>>8)&0x00ff)) + (29*(color&0x00ff))) >> 8;
+    return ((77 * ((color >> 16) & 0xff))
+            + (150 * ((color >> 8) & 0xff))
+            + (29 * (color & 0xff))) >> 8;
 }
 
 static int
-set_light_backlight(struct light_device_t* dev,
-        struct light_state_t const* state)
+set_light_backlight(struct light_device_t *dev,
+        struct light_state_t const *state)
 {
     int err = 0;
     int brightness = rgb_to_brightness(state);
@@ -110,8 +113,8 @@ set_light_backlight(struct light_device_t* dev,
 }
 
 static int
-set_speaker_light_locked(struct light_device_t* dev,
-        struct light_state_t const* state)
+set_speaker_light_locked(struct light_device_t *dev,
+        struct light_state_t const *state)
 {
     int red;
     int err = 0;
@@ -130,7 +133,7 @@ set_speaker_light_locked(struct light_device_t* dev,
 }
 
 static void
-handle_speaker_battery_locked(struct light_device_t* dev)
+handle_speaker_battery_locked(struct light_device_t *dev)
 {
     if (is_lit(&g_notification)) {
         set_speaker_light_locked(dev, &g_notification);
@@ -140,8 +143,8 @@ handle_speaker_battery_locked(struct light_device_t* dev)
 }
 
 static int
-set_light_notifications(struct light_device_t* dev,
-        struct light_state_t const* state)
+set_light_notifications(struct light_device_t *dev,
+        struct light_state_t const *state)
 {
     pthread_mutex_lock(&g_lock);
     g_notification = *state;
@@ -151,8 +154,8 @@ set_light_notifications(struct light_device_t* dev,
 }
 
 static int
-set_light_battery(struct light_device_t* dev,
-        struct light_state_t const* state)
+set_light_battery(struct light_device_t *dev,
+        struct light_state_t const *state)
 {
     pthread_mutex_lock(&g_lock);
     g_battery = *state;
@@ -162,8 +165,8 @@ set_light_battery(struct light_device_t* dev,
 }
 
 static int
-set_light_buttons(struct light_device_t* dev,
-        struct light_state_t const* state)
+set_light_buttons(struct light_device_t *dev,
+        struct light_state_t const *state)
 {
     int err = 0;
     int brightness = rgb_to_brightness(state);
@@ -191,11 +194,11 @@ close_lights(struct light_device_t *dev)
  */
 
 /** Open a new instance of a lights device using name */
-static int open_lights(const struct hw_module_t* module, char const* name,
-        struct hw_device_t** device)
+static int open_lights(const struct hw_module_t *module, char const *name,
+        struct hw_device_t **device)
 {
-    int (*set_light)(struct light_device_t* dev,
-            struct light_state_t const* state);
+    int (*set_light)(struct light_device_t *dev,
+            struct light_state_t const *state);
 
     if (0 == strcmp(LIGHT_ID_BACKLIGHT, name)) {
         set_light = set_light_backlight;
@@ -237,6 +240,6 @@ struct hw_module_t HAL_MODULE_INFO_SYM = {
     .version_minor = 0,
     .id = LIGHTS_HARDWARE_MODULE_ID,
     .name = "MLTE5 Lights Module",
-    .author = "Google, Inc.",
+    .author = "The LineageOS project",
     .methods = &lights_module_methods,
 };
