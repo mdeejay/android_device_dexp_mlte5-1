@@ -15,6 +15,9 @@ ifeq ($(strip $(TARGET_USES_ION)),true)
 LOCAL_CFLAGS += -DUSE_ION
 endif
 
+LOCAL_CLANG_CFLAGS += \
+        -Wno-error=enum-conversion
+
 LOCAL_CFLAGS += -D_ANDROID_
 
 LOCAL_SRC_FILES:= \
@@ -93,7 +96,6 @@ LOCAL_SHARED_LIBRARIES:= \
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_MODULE:= libmm-qcamera
-LOCAL_CLANG := false
 LOCAL_32_BIT_ONLY := true
 include $(BUILD_SHARED_LIBRARY)
 endif

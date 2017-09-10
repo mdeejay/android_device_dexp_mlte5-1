@@ -2043,7 +2043,7 @@ abort_done:
   return rc;
 }
 
-
+#ifdef MM_JPEG_READ_META_KEYFILE
 static int32_t mm_jpeg_read_meta_keyfile(mm_jpeg_job_session_t *p_session, const char *filename)
 {
   int rc = 0;
@@ -2072,6 +2072,7 @@ static int32_t mm_jpeg_read_meta_keyfile(mm_jpeg_job_session_t *p_session, const
 
   return rc;
 }
+#endif // MM_JPEG_READ_META_KEYFILE
 
 /** mm_jpeg_create_session:
  *
