@@ -25,7 +25,8 @@ LOCAL_SRC_FILES := \
         QCameraThermalAdapter.cpp \
         wrapper/QualcommCamera.cpp
 
-LOCAL_CFLAGS = -Wall -Wextra -Werror -DDEFAULT_DENOISE_MODE_ON
+LOCAL_CFLAGS = -Wall -Wextra -Werror
+LOCAL_CFLAGS += -DDEFAULT_DENOISE_MODE_ON
 LOCAL_CFLAGS += -DHAS_MULTIMEDIA_HINTS
 LOCAL_CFLAGS += -DUSE_MEDIA_EXTENSIONS
 
