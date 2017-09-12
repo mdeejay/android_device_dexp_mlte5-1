@@ -1,7 +1,7 @@
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
-    camera.device@3.2-impl \
+    camera.device@1.0-impl \
     camera.msm8916 \
     libmm-qcamera \
     Snap
@@ -14,4 +14,7 @@ PRODUCT_COPY_FILES += \
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.cpp.duplication=false \
-    persist.camera.hal.debug.mask=0
+    persist.camera.hal.debug.mask=0 \
+    media.stagefright.legacyencoder=true \
+    media.stagefright.less-secure=true \
+    ro.camera.sensors=ov8865_cm9462 ov2680
