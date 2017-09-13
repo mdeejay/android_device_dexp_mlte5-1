@@ -4,6 +4,7 @@ PRODUCT_PACKAGES += \
     camera.device@1.0-impl \
     camera.msm8916 \
     libmm-qcamera \
+    libshim_atomic \
     Snap
 
 # Permissions
