@@ -4,7 +4,7 @@
     "target_path": "device/cyanogen/msm8916-common"
   },
   {
-    "repository": "android_kernel_cyanogen_msm8916",
-    "target_path": "kernel/cyanogen/msm8916"
+    "repository": "android_kernel_dexp_msm8916",
+    "target_path": "kernel/dexp/msm8916"
   }
 ]

@@ -19,8 +19,5 @@ include device/cyanogen/msm8916-common/BoardConfigCommon.mk
 
 include device/DEXP/MLTE5/board/*.mk
 
-# Assertions
-#TARGET_BOARD_INFO_FILE := device/yu/jalebi/board-info.txt
-
 # Inherit from proprietary files
 include vendor/DEXP/MLTE5/BoardConfigVendor.mk
