@@ -3,8 +3,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     camera.device@1.0-impl \
     camera.msm8916 \
-    libmm-qcamera \
-    Snap
+    libmm-qcamera
 
 # Permissions
 PRODUCT_COPY_FILES += \

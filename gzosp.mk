@@ -16,12 +16,12 @@
 $(call inherit-product, device/DEXP/MLTE5/full_MLTE5.mk)
 
 # Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/gzosp/config/common_full_phone.mk)
 
 # Must define platform variant before including any common things
 TARGET_BOARD_PLATFORM_VARIANT := msm8916
 
-PRODUCT_NAME := lineage_MLTE5
+PRODUCT_NAME := gzosp_MLTE5
 BOARD_VENDOR := DEXP
 PRODUCT_DEVICE := MLTE5
 
