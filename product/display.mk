@@ -16,7 +16,7 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Provides overrides to configure the Dalvik heap for a 3G phone
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapgrowthlimit=128m \
+    dalvik.vm.heapgrowthlimit=192m \
     dalvik.vm.heapminfree=6m \
     dalvik.vm.heapstartsize=14m \
     dalvik.vm.heapsize=256m \
@@ -36,5 +36,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.text_small_cache_height=2048 \
     ro.hwui.text_large_cache_width=4096 \
     ro.hwui.text_large_cache_height=4096 \
-    debug.hwui.use_buffer_age=false
+    debug.hwui.use_buffer_age=false \
+    persist.sys.force_highendgfx=true
 
