@@ -49,7 +49,7 @@ LOCAL_SRC_FILES :=\
 	SensorBase.cpp\
 	LightSensor.cpp\
 	ProximitySensor.cpp\
-    BstSensorInfo.cpp
+	BstSensorInfo.cpp
 
 LOCAL_C_INCLUDES = $(LOCAL_PATH)/../version
 
