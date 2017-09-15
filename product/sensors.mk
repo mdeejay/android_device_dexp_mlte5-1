@@ -1,10 +1,8 @@
 # Sensor HAL
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
-    calmodule.cfg \
-    libcalmodule_common \
-    sensors.msm8916
-
+    sensors.msm8916 \
+    sensord
 
 # Permissions
 PRODUCT_COPY_FILES += \
